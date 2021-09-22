@@ -1,0 +1,86 @@
+ * {
+     margin: 0;
+     padding: 0;
+ }
+ 
+ body {
+    font-family: ronde-b, 'DotGothic16',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    overflow: hidden;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+.main  {
+    background-image: url(../backgroundImage/tittleDesu.png);
+    background-size: cover;
+    margin: auto;
+    padding-top: 8%;
+    box-sizing: border-box;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -100;
+}
+
+
+
+.tittleLogo {
+    /* background: red; */
+    background-image: url(../backgroundImage/inaduma.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+
+    width: 70%;
+    margin: 0 auto;
+}
+
+
+
+.nextButton {
+    width: 250px;
+    height: 80px;
+    border-radius: 20px;
+    border: solid 4px dimgray;
+    background-color: red;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nextButton h3 {
+    font-size: 35px;
+    font-family: ronde-b, 'DotGothic16',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+.gameSubTittle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.gameSubTittle h5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 1;
+    text-align: center;
+}

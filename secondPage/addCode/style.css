@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: ronde-b, 'DotGothic16',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: white;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background: #2a2a2a;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+::placeholder {
+    font-family: ronde-b, 'DotGothic16',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+img {
+    width: 100%;
+}
+
+
+.backButton {
+    width: 60px;
+    left: 20px;
+    bottom: 15px;
+    position: absolute;
+    background: #2a2a2a;
+    display: none !important;
+}
+
+
+
+
+.main {
+    /* ほぼ背景みたいなもの */
+
+    background: #2a2a2a;
+    padding: 0 100px;
+    box-sizing: border-box;
+    /* text-align: center; */
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -100;
+}
+
+
+
+/* ステージ1にあたる　プレイヤーに話しかけるシーン */
+/* talkSpaceの装飾 */
+
+
+.talkSpace {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.talkSpace h1 {
+    text-align: center;
+    font-size: 30px;
+    line-height: 100px;;
+}
+
+.talkSpace p {
+    margin-top: 8%;
+    text-align: right;
+    font-size: 20px;
+    display: none;
+}
+
+
+
+/* ステージ2にあたる　プレイヤーの人数を入れてもらうところ
+getPlayerSumの装飾 */
+
+.getPlayerSum {
+    margin-top: 40%;
+}
+
+.getPlayerSum h3 {
+    font-size: 40px;
+}
+
+.answerBox {
+    margin-top: 20%;
+}
+
+.inputSumBox {
+    display: flex;
+    margin-top: 10%;
+}
+
+#getPlayerSum {
+    width: 150px;
+    height: 20px;
+    text-align: center;
+    margin-left: 0px;
+}
+
+.inputSumBox > .okBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 22px;
+    color: black;
+    background: white;
+    border: solid 1px gray;
+    border-radius: 3px;
+    margin-left: 30px;
+}
+
+
+
+
+/* ステージ4にあたる　プレイヤーの名前を入力してもらうところ
+getPlayerNameにあたる */
+
+
+.getPlayerName {
+    margin-top: 25%;
+}
+
+.getPlayerName h3 {
+    font-size: 40px;
+}
+
+.getPlayerName > p {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.inputNameTextBox {
+    margin-top: 20%;
+}
+
+.inputNameBox {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+#PN5 {
+    margin-bottom: 0;
+} 
+
+.inputNameBox h4 {
+    font-size: 20px;
+    width: 150px
+}
+
+.playerName{
+    width: 200px;
+    height: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.getPlayerName > .okBox {
+    width: 50px;
+    height: 30px;
+    border: solid 1px gray;
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    line-height: 30px;
+    margin-left: auto;
+}
+
+
+/* 入力情報を確認するところ */
+
+
+.profileCheck {
+    /* display: block; */
+
+    margin-top: 20%;
+}
+
+.profileCheck h1 {
+    font-size: 30px;
+}
+
+.profileCheckBox {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+#PNO5 {
+    margin: 0;
+}
+
+.profileCheckBox h4 {
+    font-size: 20px;
+    width: 150px;
+}
+
+.playerNameCheck {
+    width: 200px;
+    height: 20px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    line-height: 30px;
+    border: solid 1px gray;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.playerNameCheck p {
+    font-size:15px;
+    line-height: 20px;;
+}
+
+
+.profileCheck > .okBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 40px;
+    color: black;
+    font-size: 20px;
+    line-height: 40px;
+    background: white;
+    border: solid 1px gray;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-left: auto;
+}
