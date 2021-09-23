@@ -1,6 +1,5 @@
 $(function() {
 
-
     let windowWidth = $(window).width();
     let windowHeight = $(window).height();
 
@@ -40,9 +39,8 @@ $(function() {
     
     $(".announcePlace").css({
         height: topScreanHiehgt,
-        width: pageWidht,
-        top: 0,
-        left: pageLeftStart
+        width: pageWidht - 10,
+        left: pageLeftStart + 5
     })
     
     $(".answerCommentary").css({
@@ -57,11 +55,25 @@ $(function() {
         height: answerCommentaryHeight
     })
 
+    $(".lastQuestionImage").css({
+        width: pageWidht,
+        height: windowHeight,
+        left: pageLeftStart
+    })
+
+    $(".lastQuestionImageInside").css({
+        height: answerCommentaryHeight
+    })
+
     $(".gameDowner").css({
         height: downScreanHeight
     })
     
     $(".downerContent").css({
+        height: downScreanHeight * 0.8
+    })
+    
+    $(".downerContent > div").css({
         height: downScreanHeight * 0.8
     })
     
@@ -78,112 +90,21 @@ $(function() {
 
 
 
-    $(window).resize(function() {
-        
-            // 画面の横幅・縦幅を取得
-
-        let windowWidth = $(window).width();
-        let windowHeight = $(window).height();
-
-        localStorage.setItem('proNGWindowWidht' , windowWidth)
-        localStorage.setItem('proNGWindowHeight' , windowHeight)
-        
-
-        let pageWidht = windowHeight * 0.75;
-
-        
-        
-        $(".main").css({
-            width: pageWidht,
-            height: windowHeight
-        })
-        
-        $(".background").css({
-            width: windowWidth,
-            height: windowHeight
-        })
-
-        $(".talkHeader").css({
-            width: pageWidht
-        })
-        
-        
-        
-        // 画面の上のサイズを設定
-        
-        
-        let topScreanHiehgt = pageWidht / 1.75;
-        let downSvreanHeight = windowHeight - topScreanHiehgt;
-
-
-        console.log(topScreanHiehgt + '画面の上のところのサイズ')
-        
-        $(".gameUpper").css({
-            height: topScreanHiehgt
-        })
-
-
-        let pageLeftStart = (windowWidth - pageWidht) / 2;
-
-        $(".announcePlace").css({
-            height: topScreanHiehgt,
-            // width: pageWidht,
-            // top: 0,
-            // right: pageRightStart
-        })
-
-            
-        $(".answerCommentary").css({
-            width: pageWidht,
-            height: windowHeight,
-            left: pageLeftStart
-        })
-
-        let answerCommentaryHeight = windowHeight * 0.9
-
-        $(".answerCommentary > div").css({
-            height: answerCommentaryHeight
-        })
-
-        $(".gameDowner").css({
-            height: downSvreanHeight
-        })
-
-        $(".downerContent").css({
-            height: downSvreanHeight * 0.8
-        })
-
-        $(".wr-downerContent").css({
-            height: downSvreanHeight * 0.8
-        })
-
-
-        let getQuestionTextHeight = $(".questionText").height();
-        let downContentHeight = downScreanHeight * 0.8  - 35 - getQuestionTextHeight
-        $(".questionBox").css({
-            height: downContentHeight
-        })
-        
-    })
-
-
-
-
     // 会話の内容を配列に組み込む
 
     const storyTlaking = [
-        '俺たちの街の電力システムがジャックされた！？　デンコウジャー助けて！！',
+        '俺たちの町の電力システムがジャックされた！？　デンコウジャー助けて！！',
         '街のいろんなところから電気が使えなくなったとの通報が、、、',
         'これは、きっと魔王の仕業だ！',
         '俺たちデンコウジャーがこの街を救って見せるぞ”！！',
-        'どうやら、発電所に異常があるみたいだ、、',
+        'どうやら、発電所に問題があるみたいだ、、',
         'とりあえず発電所に行くぞ！',
         'どうやらこの中に発電所があるみたいだ、、',
         'ってあいつは！',
         'よくきたなデンコウジャー。',
         'お前らに30分だけくれてやる！',
-        'その間に我々が占領した5つの発電所を開放するんだな',
-        'せいぜい手遅れにならないよう足掻くんだな。',
+        'その間に我々が奪ったした5つの発電所を取り戻してみるんだな',
+        'せいぜい手遅れになる前に',
         'まずい、、30分以内に敵を倒しきらなきゃいけないみたいだ、、',
         '最初は火力発電所だ！　いくぞ！',
         'ｷｪｪｪｪｪｪｪｪ (敵が現れた)',
@@ -195,9 +116,9 @@ $(function() {
         '次は水力エリアだ！',
         'ｸﾞｱｧｧｧｧ',
         '今度の敵はこいつか、、',
-        'さぁ　俺の技を受けていただこう！',
-        'これが俺の必殺技だ！',
-        'いけっ！　〇〇〇〇キャノン！！',
+        'どうやら俺の出番だな',
+        '俺の技を受けていただこう！',
+        'これが俺の必殺技だ！ <br>いけっ！　〇〇〇〇キャノン！！',
         'ﾊﾞｯｼｬｰﾝ',
         'ｸﾞｪｪｪ..(敵が倒れた)',
         'ﾌｯ... この程度か... 次は風力発電所だ！',
@@ -221,10 +142,10 @@ $(function() {
         'よくぞここまできたな。　　褒めてやろうじゃないか',
         '最後は手強いぞ、、　みんなで力を合わせよう！！',
         'おぉ！！',
-        '行くぞ！　俺たちの合体技！',
-        'パワージェネレーション！！！　〇〇！',
+        '行くぞ！　俺たちの合体技！ <br>パワージェネレーション！！！　????！',
         'お、おのれ、、　覚えていろ！！',
-        'こうして全ての発電所が正常に稼働し、街の姿は元に戻った。',
+        '僕たちの街はデンコウジャーのおかげて救われた！',
+        'ありがとうデンコウジャー！'
 
     ]
 
@@ -279,10 +200,10 @@ $(function() {
         '11',
         '1',
         '0',
-        '2',
         '0',
         '11',
-        '13'
+        '12',
+        '12'
     ]
 
     const talkerCharacterName = [
@@ -336,8 +257,13 @@ $(function() {
         },200)
     }
 
+    $(".gameUpper").attr('id','gameUpperBack1')
+    $(".background").attr('id','gameUpperBack1')
+
 
     let talkCount = 0;
+
+    let questionStage = '';
 
 
     // アタックボタンのIDを取得
@@ -366,7 +292,10 @@ $(function() {
 
             // 発電所到着
 
-            announcePlaceOn();
+            $(".gameUpper").attr('id','gameUpperBack2');
+            $(".background").attr('id','gameUpperBack2')
+
+            announcePlaceOn(); 
 
             setTimeout(function() {
 
@@ -401,6 +330,11 @@ $(function() {
 
             // 火力発電所到着
 
+            $(".gameUpper").attr('id','gameUpperBack3');
+            $(".background").attr('id','gameUpperBack3')
+
+
+
             talkCount = 14;
 
             $(".announcePlace").html('<h1>火力発電</h1>');
@@ -434,9 +368,13 @@ $(function() {
         
         else if (talkCount === 17) {
 
+            attackButtonId.value= '';
+
             // 第一回戦開始
 
             talkCount = 17;
+
+            let checkStage = 'stage1'
 
             $(".announcePlace").html('<h1>戦闘開始</h1>');
 
@@ -460,6 +398,9 @@ $(function() {
                 $(".downerContent").css({
                     display: 'block'
                 })
+                $(".questionSpace").css({
+                    display: 'block'
+                })
 
                 // 問題の部分
 
@@ -468,7 +409,7 @@ $(function() {
                 )
 
                 $(".questionText > p").html(
-                    'どうやらこれは魔法陣のようだ、、　魔法陣を解いて ”2で割り切れる数字” を順番に読むと解けそう、、か？'
+                    '魔法陣を解いて偶数 ( 2で割り切れる数字。 2,4,6,8.... ) の数字の少ない順によめ！'
                 )
 
                 $(".questionImage > img").attr('src','./thirdPage/questionBox/1.png')
@@ -479,6 +420,7 @@ $(function() {
 
                 talkCount = 100
 
+                questionStage = 1;
 
                 let getQuestionTextHeight = $(".questionText").height();
                 let downContentHeight = downScreanHeight * 0.8  - 35 - getQuestionTextHeight
@@ -492,32 +434,83 @@ $(function() {
 
                 let answerStorage = attackButtonId.value;
 
-                if (answerStorage === 'ボイラー') {
-                    // alert('正解！！')
+                if (answerStorage === 'ボイラー' && checkStage === 'stage1') {
 
-                    $(".downerContent").css({
-                        display: 'none'
+                    $(".displayResult h2").html('A. "ボイラー" ブラスト')
+
+                    $(".commentaryText p").html(
+                        '火力発電とは文字通り、火の力を利用した発電の仕組みです。　その中で今回の答えだったボイラーとは燃料を用いてお湯を沸かすところだよ。　そして、お湯を沸かすことで出てくる蒸気で電気を生み出しているんだ。　もっと知りたい人は自分と調べてみてね！'
+                    )
+
+
+                    $(".answerCommentary").css({
+                        display: 'flex'
+                    })
+    
+                    $(".questionTrue").css({
+                        display: 'block',
                     })
 
-                    // ここに解説を載せたい
+                    $(".nextTalkCount").click(function() {
 
-                    talkCount = 18;
+                        $(".answerCommentary").css({
+                            display: 'none'
+                        })
 
-                    let characterSelect = storyTalkerNomber[talkCount];
-                    characterSelect = Number(characterSelect)
-        
-                    if (characterSelect >= 0 & characterSelect <= 11) {
-                        $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
-                    }
-        
-        
-                    $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
-                    $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
-                    talkCount += 1;
+                        $(".questionTrue").css({
+                            display: 'none'
+                        })
+
+                        $(".downerContent").css({
+                            display: 'none'
+                        })
+
+    
+                        talkCount = 18;
+    
+                        let characterSelect = storyTalkerNomber[talkCount];
+                        characterSelect = Number(characterSelect)
+            
+                        if (characterSelect >= 0 & characterSelect <= 11) {
+                            $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
+                        }
+            
+            
+                        $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
+                        $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
+                        talkCount += 1;
+
+                        
+                        attackButtonId.value= '';
+
+                    })
 
 
                 } else {
-                    // alert('どうやら違うようだ、、　ちゃんとカタカナで書いたか？')
+
+
+                    $(".answerCommentary").css({
+                        display: 'flex'
+                    })
+
+                    $(".questionElse").css({
+                        display: 'block'
+                    })
+
+                    $(".buckQuestion").click(function() {
+
+                        $(".answerCommentary").css({
+                            display: 'none'
+                        })
+
+                        $(".questionElse").css({
+                            display: 'none'
+                        })
+
+                        attackButtonId.value= '';
+                        
+                        
+                    })
                 }
 
             })
@@ -529,6 +522,8 @@ $(function() {
         else if (talkCount === 21) {
 
             // 水力発電所到着
+            $(".gameUpper").attr('id','gameUpperBack4');
+            $(".background").attr('id','gameUpperBack4')
 
             talkCount = 21;
 
@@ -567,6 +562,8 @@ $(function() {
             // 第二回戦開始
 
             talkCount = 25;
+            
+            let checkStage = 'stage2'
 
             $(".announcePlace").html('<h1>戦闘開始</h1>');
 
@@ -590,6 +587,9 @@ $(function() {
                 $(".downerContent").css({
                     display: 'block'
                 })
+                $(".questionSpace").css({
+                    display: 'block'
+                })
 
                 // 問題の部分
 
@@ -598,17 +598,18 @@ $(function() {
                 )
 
                 $(".questionText > p").html(
-                    'この漢字、何かがおかしい？　何かが足りないのか？？'
+                    '漢字の中に隠れているカタカナを見つけろ！ (※三文字目には濁点がつきます)'
                 )
 
                 $(".questionImage > img").attr('src','./thirdPage/questionBox/2.png')
 
                 $(".answerBox > h2").html(
-                    'A. ???? キャノン'
+                    'A. ? ? ?゛? キャノン'
                 )
 
                 talkCount = 100
 
+                questionStage = 2;
 
 
                 let getQuestionTextHeight = $(".questionText").height();
@@ -624,30 +625,89 @@ $(function() {
                 let answerStorage = attackButtonId.value;
 
                 if (answerStorage === 'ハイドロ') {
-                    // alert('正解！！')
 
-                    $(".downerContent").css({
+                    $(".displayResult h2").html('A. "ハイドロ" キャノン')
+
+                    $(".commentaryText p").html(
+                        '水力発電とは水の力を用いで電気を生み出す発電方法です。　水力発電は再生可能なエネルギーであり、地球温暖化の原因である二酸化炭素 (CO2) をほとんど出さないという地球に優しい発電方法です。　高いところに貯めた水を低いところに落とすことで、その力を利用して水車を回しで電気を生み出しています。　ハイドロの語源はギリシャ語で [水]らしいですよ'
+                    )
+
+                    $(".questionElse").css({
                         display: 'none'
                     })
 
-                    // ここに解説を載せたい
 
-                    talkCount = 26;
+                    $(".answerCommentary").css({
+                        display: 'flex'
+                    })
+    
+                    $(".questionTrue").css({
+                        display: 'block',
+                    })
 
-                    let characterSelect = storyTalkerNomber[talkCount];
-                    characterSelect = Number(characterSelect)
-        
-                    if (characterSelect >= 0 & characterSelect <= 11) {
-                        $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
-                    }
-        
-        
-                    $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
-                    $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
-                    talkCount += 1;
+                    $(".nextTalkCount").click(function() {
+
+                        $(".answerCommentary").css({
+                            display: 'none'
+                        })
+
+                        $(".questionTrue").css({
+                            display: 'none'
+                        })
+
+                        $(".downerContent").css({
+                            display: 'none'
+                        })
+
+    
+                        talkCount = 26;
+    
+                        let characterSelect = storyTalkerNomber[talkCount];
+                        characterSelect = Number(characterSelect)
+            
+                        if (characterSelect >= 0 & characterSelect <= 11) {
+                            $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
+                        }
+            
+            
+                        $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
+                        $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
+                        talkCount += 1;
+
+                        
+                        attackButtonId.value= '';
+
+                    })
+
 
                 } else {
-                    // alert('どうやら違うようだ、、　ちゃんとカタカナで書いたか？')
+
+
+                    $(".questionTrue").css({display: 'none'})
+
+                    $(".answerCommentary").css({
+                        display: 'flex'
+                    })
+
+                    $(".questionElse").css({
+                        display: 'block'
+                    })
+
+                    $(".buckQuestion").click(function() {
+
+                        $(".answerCommentary").css({
+                            display: 'none'
+                        })
+
+                        $(".questionElse").css({
+                            display: 'none'
+                        })
+
+                        attackButtonId.value= '';
+                        
+                        
+                    })
+                    
                 }
 
             })
@@ -660,6 +720,9 @@ $(function() {
         else if (talkCount === 29) {
 
             // 風力発電所到着
+            $(".gameUpper").attr('id','gameUpperBack5');
+            $(".background").attr('id','gameUpperBack5')
+
 
             talkCount = 29;
 
@@ -722,6 +785,9 @@ $(function() {
                 $(".downerContent").css({
                     display: 'block'
                 })
+                $(".questionSpace").css({
+                    display: 'block'
+                })
 
                 // 問題の部分
 
@@ -730,7 +796,7 @@ $(function() {
                 )
 
                 $(".questionText > p").html(
-                    '下の形、、　何か意味がありそうだ。　この形、、　もしかして！？'
+                    '下の暗号を解け！'
                 )
 
                 $(".questionImage > img").attr('src','./thirdPage/questionBox/3.png')
@@ -740,6 +806,8 @@ $(function() {
                 )
 
                 talkCount = 100
+
+                questionStage = 3;
 
 
 
@@ -756,30 +824,89 @@ $(function() {
                 let answerStorage = attackButtonId.value;
 
                 if (answerStorage === 'ウィンドミル') {
-                    // alert('正解！！')
 
-                    $(".downerContent").css({
+                    $(".displayResult h2").html('A. "ウィンドミル" スラッシュ')
+
+                    $(".commentaryText p").html(
+                        '風力発電は風の力を利用した発電方法です。　ある程度の風の強さがあればいつでも電力を生み出して発電をしてくれます！　こちらの発電も燃料を使用しないため、排気ガスや二酸化炭素(CO2)を排出しないため、地球に優しい発電方法です！　ちなみにウィンドミル (windmill) とは英語で風車という意味がありますよ！'
+                    )
+
+                    $(".questionElse").css({
                         display: 'none'
                     })
 
-                    // ここに解説を載せたい
 
-                    talkCount = 32;
+                    $(".answerCommentary").css({
+                        display: 'flex'
+                    })
+    
+                    $(".questionTrue").css({
+                        display: 'block',
+                    })
 
-                    let characterSelect = storyTalkerNomber[talkCount];
-                    characterSelect = Number(characterSelect)
-        
-                    if (characterSelect >= 0 & characterSelect <= 11) {
-                        $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
-                    }
-        
-        
-                    $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
-                    $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
-                    talkCount += 1;
+                    $(".nextTalkCount").click(function() {
+                        $(".questionTrue").scrollTop(0);
+    
+                        $(".commentaryText").scrollTop(0);
+
+                        $(".answerCommentary").css({
+                            display: 'none'
+                        })
+
+                        $(".questionTrue").css({
+                            display: 'none'
+                        })
+
+                        $(".downerContent").css({
+                            display: 'none'
+                        })
+
+    
+                        talkCount = 32;
+    
+                        let characterSelect = storyTalkerNomber[talkCount];
+                        characterSelect = Number(characterSelect)
+            
+                        if (characterSelect >= 0 & characterSelect <= 11) {
+                            $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
+                        }
+            
+            
+                        $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
+                        $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
+                        talkCount += 1;
+
+                        
+                        attackButtonId.value= '';
+
+                    })
+
 
                 } else {
-                    // alert('どうやら違うようだ、、　ちゃんとカタカナで書いたか？')
+
+
+                    $(".answerCommentary").css({
+                        display: 'flex'
+                    })
+
+                    $(".questionElse").css({
+                        display: 'block'
+                    })
+
+                    $(".buckQuestion").click(function() {
+
+                        $(".answerCommentary").css({
+                            display: 'none'
+                        })
+
+                        $(".questionElse").css({
+                            display: 'none'
+                        })
+
+                        attackButtonId.value= '';
+                        
+                        
+                    })
                 }
 
             })
@@ -794,6 +921,10 @@ $(function() {
         else if (talkCount === 34) {
 
             // 太陽光発電所到着
+
+            $(".gameUpper").attr('id','gameUpperBack6');
+            $(".background").attr('id','gameUpperBack6')
+
 
             talkCount = 34;
 
@@ -854,15 +985,18 @@ $(function() {
             $(".downerContent").css({
                 display: 'block'
             })
+            $(".questionSpace").css({
+                display: 'block'
+            })
 
             // 問題の部分
 
             $(".questionText > h2").html(
-                'Q. 謎を解いて技を発動しろ！！'
+                'Q. 謎解きをし、技を発動せよ！'
             )
 
             $(".questionText > p").html(
-                '赤から Wに1, Sに1, Eに3, Wに2, Nに3, Eに2, Wに4, Sに2, Eに3, Sに2 に従ってなぞれ。　だそうだ。 えっと、NとSとWとE があるのか。　この四つどこかで？'
+                '赤からスタートして、 Wに1, Sに1, Eに3, Wに2, Nに3, Eに2, Wに4, Sに2, Eに3, Sに2 に従ってなぞれ。'
             )
 
             $(".questionImage > img").attr('src','./thirdPage/questionBox/4.png')
@@ -873,6 +1007,7 @@ $(function() {
 
             talkCount = 100
 
+            questionStage = 4;
 
 
             let getQuestionTextHeight = $(".questionText").height();
@@ -888,30 +1023,91 @@ $(function() {
             let answerStorage = attackButtonId.value;
 
             if (answerStorage === 'サンシャイン') {
-                // alert('正解！！')
 
-                $(".downerContent").css({
+                $(".displayResult h2").html('A. "サンシャイン" ショット')
+
+                $(".commentaryText p").html(
+                    '太陽光発電は光エネルギーから直接電気を作る太陽電池を利用した発電方法です。　太陽光発電は、風力・水力発電と同様に二酸化炭素(CO2)などを出さないため環境に優しい仕組みになってるよ！　最近で一軒家の屋根についていることもある太陽光発電だけど、実はお金が結構かかるっているデメリットもあるんだ、、、　ちなみにサンシャインは日光・ひなたみたいな意味があるよ！'
+                )
+
+                $(".questionElse").css({
                     display: 'none'
                 })
 
-                // ここに解説を載せたい
 
-                talkCount = 37;
+                $(".answerCommentary").css({
+                    display: 'flex'
+                })
 
-                let characterSelect = storyTalkerNomber[talkCount];
-                characterSelect = Number(characterSelect)
-    
-                if (characterSelect >= 0 & characterSelect <= 11) {
-                    $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
-                }
-    
-    
-                $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
-                $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
-                talkCount += 1;
+                $(".questionTrue").css({
+                    display: 'block',
+                })
+
+                $(".nextTalkCount").click(function() {
+
+                    $(".questionTrue").scrollTop(0);
+
+                    $(".commentaryText").scrollTop(0);
+
+                    $(".answerCommentary").css({
+                        display: 'none'
+                    })
+
+                    $(".questionTrue").css({
+                        display: 'none'
+                    })
+
+                    $(".downerContent").css({
+                        display: 'none'
+                    })
+
+
+                    talkCount = 37;
+
+                    let characterSelect = storyTalkerNomber[talkCount];
+                    characterSelect = Number(characterSelect)
+        
+                    if (characterSelect >= 0 & characterSelect <= 11) {
+                        $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
+                    }
+        
+        
+                    $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
+                    $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
+                    talkCount += 1;
+
+                    
+                    attackButtonId.value= '';
+
+                })
+
 
             } else {
-                // alert('どうやら違うようだ、、　ちゃんとカタカナで書いたか？')
+
+                $(".questionTrue").css({display: 'none'})
+
+                $(".answerCommentary").css({
+                    display: 'flex'
+                })
+
+                $(".questionElse").css({
+                    display: 'block'
+                })
+
+                $(".buckQuestion").click(function() {
+
+                    $(".answerCommentary").css({
+                        display: 'none'
+                    })
+
+                    $(".questionElse").css({
+                        display: 'none'
+                    })
+
+                    attackButtonId.value= '';
+                    
+                })
+
             }
 
         })
@@ -921,34 +1117,38 @@ $(function() {
 
         } else if (talkCount === 40) {
 
-           // 原子力発電所到着
+        // 原子力発電所到着
 
-           talkCount = 40;
+        $(".gameUpper").attr('id','gameUpperBack7');
+        $(".background").attr('id','gameUpperBack7')
 
-           $(".announcePlace").html('<h1>原子力発電所</h1>');
 
-           announcePlaceOn();
+        talkCount = 40;
 
-           setTimeout(function() {
+        $(".announcePlace").html('<h1>原子力発電所</h1>');
+
+        announcePlaceOn();
+
+        setTimeout(function() {
 
             announcePlaceOff();
 
             talkCount = 40;
- 
+
             let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
     
             if (characterSelect >= 0 & characterSelect <= 11) {
                 $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
             }
- 
+
     
             $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
             $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
- 
+
             talkCount = 41;
 
-           },2500)
+        },2500)
 
         }
 
@@ -982,6 +1182,9 @@ $(function() {
                 $(".downerContent").css({
                     display: 'block'
                 })
+                $(".questionSpace").css({
+                    display: 'block'
+                })
     
                 // 問題の部分
     
@@ -990,17 +1193,18 @@ $(function() {
                 )
     
                 $(".questionText > p").html(
-                    'よく見ると漢字に小さなカタカナがついている？？　順番通りに読んで最後に "ン" をつければ良さそうだ。'
+                    '書き順通りによめ (※10文字目には伸ばし棒が入ります)'
                 )
     
                 $(".questionImage > img").attr('src','./thirdPage/questionBox/5.png')
     
                 $(".answerBox > h2").html(
-                    'A. ???????????'
+                    'A. ?????????-???'
                 )
-    
+                
                 talkCount = 100
 
+                questionStage = 5;
 
     
                 let getQuestionTextHeight = $(".questionText").height();
@@ -1016,30 +1220,93 @@ $(function() {
                 let answerStorage = attackButtonId.value;
     
                 if (answerStorage === 'ニュークエクスプローション') {
-                    // alert('正解！！')
-    
-                    $(".downerContent").css({
+
+
+                    $(".displayResult h2").html('A. "ニューク" エクスプローション <br>(エクスプロージョン)')
+
+                    $(".commentaryText p").html(
+                        '原子力発電は”ウラン”というものを使って電気を生み出しています　原子力発電は地球に悪いみたいなイメージがあるかもしれないけど、実は環境に悪いってわけではないんだ！　確かにウランの量には限りがあるし、いつか使えなくなってしまうものではあるけど、実は一度使われたウランのほとんどをもう一度使うことができるか有効に活用することもできるんだ！　それに、電気を作るときに二酸化炭素(CO2)をほとんど排出しないから環境に優しいとも言われているんだ！　あと、ちなみに”ニュークエクスプローション”は、”ニューク”が核のという海があり、エクスプローション (エクスプロージョン)は爆発みたいな意味があるよ！'
+                    )
+
+                    $(".questionElse").css({
                         display: 'none'
                     })
+
+
+                    $(".answerCommentary").css({
+                        display: 'flex'
+                    })
     
-                    // ここに解説を載せたい
+                    $(".questionTrue").css({
+                        display: 'block',
+                    })
+
+                    $(".nextTalkCount").click(function() {
+
+                        $(".answerCommentary").css({
+                            display: 'none'
+                        })
+
+                        $(".questionTrue").css({
+                            display: 'none'
+                        })
+
+                        $(".downerContent").css({
+                            display: 'none'
+                        })
+
+                        $(".questionSpace").css({
+                            display: 'none'
+                        })
+
     
-                    talkCount = 43;
+                        talkCount = 43;
     
-                    let characterSelect = storyTalkerNomber[talkCount];
-                    characterSelect = Number(characterSelect)
-        
-                    if (characterSelect >= 0 & characterSelect <= 11) {
-                        $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
-                    }
-        
-        
-                    $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
-                    $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
-                    talkCount += 1;
-    
+                        let characterSelect = storyTalkerNomber[talkCount];
+                        characterSelect = Number(characterSelect)
+            
+                        if (characterSelect >= 0 & characterSelect <= 11) {
+                            $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
+                        }
+            
+            
+                        $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
+                        $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
+                        talkCount += 1;
+
+                        
+                        attackButtonId.value= '';
+
+                    })
+
+
                 } else {
-                    // alert('どうやら違うようだ、、　ちゃんとカタカナで書いたか？')
+
+                    $(".questionTrue").css({display: 'none'})
+
+                    $(".answerCommentary").css({
+                        display: 'flex'
+                    })
+
+                    $(".questionElse").css({
+                        display: 'block'
+                    })
+
+                    $(".buckQuestion").click(function() {
+
+                        $(".answerCommentary").css({
+                            display: 'none'
+                        })
+
+                        $(".questionElse").css({
+                            display: 'none'
+                        })
+
+                        attackButtonId.value= '';
+                        
+                        
+                    })
+
                 }
     
             })
@@ -1052,54 +1319,53 @@ $(function() {
 
             // 魔王の城到着
 
-           talkCount = 46;
+            $(".gameUpper").attr('id','gameUpperBack8');
+            $(".background").attr('id','gameUpperBack8')
 
-           $(".announcePlace").html('<h1>魔王の城</h1>');
 
-           announcePlaceOn();
+        talkCount = 46;
 
-           setTimeout(function() {
+        $(".announcePlace").html('<h1>魔王の城</h1>');
+
+        announcePlaceOn();
+
+        setTimeout(function() {
 
             announcePlaceOff();
 
             talkCount = 46;
- 
+
             let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
     
             if (characterSelect >= 0 & characterSelect <= 11) {
                 $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
             }
- 
+
     
             $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
             $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
- 
+
             talkCount = 47;
 
-           },2500)
+        },2500)
 
         }
 
 
 
-        else if (talkCount == 50) {
+        else if (talkCount == 49) {
 
-
-            // 多分特殊なことしなきゃだめっぽい
-
-            // ラスボス戦開始
-
-            talkCount = 50;
+            talkCount = 49;
 
             $(".announcePlace").html('<h1>戦闘開始</h1>');
-    
+
             announcePlaceOn();
-    
+
             setTimeout(function() {
                 announcePlaceOff();
     
-                talkCount = 50;
+                talkCount = 49;
     
                 let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
@@ -1116,68 +1382,152 @@ $(function() {
                 })
     
                 // 問題の部分
-    
-                $(".questionText > h2").html(
-                    'Q. 謎を解いて最後の合体技の合言葉を入手せよ！'
-                )
-    
-                $(".questionText > p").html(
-                    'いくら何でもものが少なすぎる、、 今までのクイズにキーワードが隠されているのか！？'
-                )
-    
-                $(".questionImage > img").attr('src','./thirdPage/questionBox/5.png')
-    
-                $(".answerBox > h2").html(
-                    'A. ???????????'
-                )
-    
+
+                $(".lastQuestion").css({
+                    display: 'block'
+                })
+
+                
                 talkCount = 100
 
+                questionStage = 6;
 
     
-                let getQuestionTextHeight = $(".questionText").height();
-                let downContentHeight = downScreanHeight * 0.8  - 35 - getQuestionTextHeight
-                $(".questionBox").css({
-                    height: downContentHeight
-                })
-    
             },2500)
-    
-            $(".attackButton").click(function() {
-    
-                let answerStorage = attackButtonId.value;
-    
-                if (answerStorage === 'ハツデン') {
-                    // alert('正解！！')
-    
-                    $(".downerContent").css({
+
+
+            $(".openLastQuestionImage").click(function() {
+
+                $(".lastQuestionImage").css({
+                    display: 'flex'
+                })
+
+                $(".lastOkButton").click(function() {
+
+                    let getViewQuestionImage = document.getElementById('pickLastQuestionImage').value;
+
+                    if (getViewQuestionImage >= 1 && getViewQuestionImage <=4) {
+                        $(".displayLastImage img").attr('src','./thirdPage/lastQuestionImageBox/lastQuestion' + getViewQuestionImage +'.png')
+                    } else {
+                        alert('数字は1〜4を入力してください')
+                    }
+
+                    getViewQuestionImage = '';
+
+                })
+
+                $(".buckLastQuestion").click(function() {
+                    $(".lastQuestionImage").css({
                         display: 'none'
                     })
+                })
+
+            })
+
+            $(".attackButton").click(function() {
+
+                let answerStorage = document.getElementById('inputLastAnswer').value;
+
+                if (answerStorage === 'ハツデン') {
+
+                    $(".displayResult h2").html('"ハツデン" (発電)')
+                    
+                    $(".commentaryBox h3").html(
+                        '- 最後に -'
+                    )
+
+                    $(".commentaryText p").html(
+                        '正解おめでとう！　今回はプレイしてくれてありがとう！ <br>今回は5つの発電をテーマにしたヒーローのお話だったけど、どうだったかな？　みんなが当たり前に使っている電気何だけど、実はいろいろな方法で作られているんだ。　今回は5つの発電方法だけを紹介したけど、世界にはもっと色々な発電方法があるんだ。　その中には地球によくないということで徐々に数が減っているものや、環境に良いということで注目を浴びている方法もあったりするよ！ <br>そして、風力発電や水力発電など、自宅で割と簡単に試せるものがあったりするのでお父さんやお母さんと一緒に試してみてね！'
+                    )
+                    
+                    $(".questionElse").css({
+                        display: 'none'
+                    })
+
+                    $(".answerCommentary").css({
+                        display: 'flex'
+                    })
     
-                    // ここに解説を載せたい
+                    $(".questionTrue").css({
+                        display: 'block',
+                    })
+
+                    $(".nextTalkCount").click(function() {
+
+                        $(".answerCommentary").css({
+                            display: 'none'
+                        })
+
+                        $(".questionTrue").css({
+                            display: 'none'
+                        })
+
+                        $(".downerContent").css({
+                            display: 'none'
+                        })
+
     
-                    talkCount = 51;
+                        talkCount = 50;
     
-                    let characterSelect = storyTalkerNomber[talkCount];
-                    characterSelect = Number(characterSelect)
-        
-                    if (characterSelect >= 0 & characterSelect <= 11) {
-                        $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
-                    }
-        
-        
-                    $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
-                    $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
-                    talkCount += 1;
-    
+                        let characterSelect = storyTalkerNomber[talkCount];
+                        characterSelect = Number(characterSelect)
+            
+                        if (characterSelect >= 0 & characterSelect <= 11) {
+                            $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
+                        } else {
+                            $("#talkerLeft").attr('src','')
+                        }
+            
+            
+                        $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
+                        $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
+                        talkCount += 1;
+
+                        
+                        attackButtonId.value= '';
+
+                    })
+
                 } else {
-                    // alert('どうやら違うようだ、、　ちゃんとカタカナで書いたか？')
+
+                    $(".questionTrue").css({display: 'none'})
+
+                    $(".answerCommentary").css({
+                        display: 'flex'
+                    })
+
+                    $(".questionElse").css({
+                        display: 'block'
+                    })
+
+                    $(".buckQuestion").click(function() {
+
+                        $(".answerCommentary").css({
+                            display: 'none'
+                        })
+
+                        $(".questionElse").css({
+                            display: 'none'
+                        })
+
+                        attackButtonId.value= '';
+                        
+                        
+                    })
+
                 }
-    
+
             })
 
         }
 
+
+        else if (talkCount === 51) {
+            
+            $(".gameUpper").attr('id','gameUpperBack9');
+            $(".background").attr('id','gameUpperBack9')
+        }
+        
         
         
         else if (talkCount <= 52) {
@@ -1186,6 +1536,8 @@ $(function() {
 
             if (characterSelect >= 0 & characterSelect <= 11) {
                 $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
+            } else {
+                $("#talkerLeft").attr('src','')
             }
 
 
@@ -1198,5 +1550,92 @@ $(function() {
         
         
     })
+
+
+    $(".viewHint").click(function() {
+
+        $(".questionElse").css({
+            display: 'none'
+        })
+
+        $(".viewHintBox").css({
+            display: 'block'
+        })
+
+        $(".checkViewHint").css({
+            display: 'block'
+        })
+        
+        // alert(questionStage);
+
+        const hintText =[
+            '',
+            '同じ数字は使わずにたて、よこ、ななめでそれぞれ足して15になるように当てはめる。',
+            '漢字の足りない部分だけ読むと？',
+            '形に当てはまる文字は一つしかない！',
+            '方位記号(東西南北を示す記号)がない場合は上が北になるよ！',
+            '難しく考えないで！ 書き順通りに読んでみて！',
+            'Q1. 一門目の時と数字の場所は一緒だよ！ <br>Q2. ちなみにこの漢字、"字"ではありませんよ？ <br>Q3. これも一問目と一緒。 <br>Q4.これも一緒。　もうわかったかな？'
+        ]
+
+        if(questionStage <= 6) {
+
+            $(".hintQuestionNomber h2").html(
+                questionStage + '問目のヒントは'
+            );
+
+            $(".hintContent p").html(
+                hintText[questionStage]
+            )
+
+        }
+
+
+        $(".checkHintYesNo .yes").click(function() {
+
+            $(".checkViewHint").css({
+                display: 'none'
+            })
+
+            $(".viewHintSpace").css({
+                display: 'block'
+            })
+
+        })
+
+        $(".checkHintYesNo .no").click(function() {
+
+            $(".questionElse").css({
+                display: 'block'
+            })
+
+            $(".viewHintBox").css({
+                display: 'none'
+            })
+    
+            $(".checkViewHint").css({
+                display: 'none'
+            })
+
+        })
+
+        $(".hintOkBox").click(function() {
+
+            $(".viewHintSpace").css({
+                display: 'none'
+            })
+
+            $(".questionElse").css({
+                display: 'block'
+            })
+    
+            $(".viewHintBox").css({
+                display: 'none'
+            })
+
+        })
+
+    })
+
 
 })

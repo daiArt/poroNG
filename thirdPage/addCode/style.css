@@ -9,15 +9,29 @@ body {
     font-weight: 400;
     display: flex;
     justify-content: center;
-    /* overflow: hidden; */
+    overflow: hidden;
+}
+
+input {
+    font-family: ronde-b, 'DotGothic16',sans-serif;
+    font-style: normal;
+    font-weight: 400;
 }
 
 img {
     width: 100%;
 }
 
+* ::-webkit-scrollbar {
+    display: none;
+}
+
 .main {
     background: white;
+    border: solid 5px white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .background {
@@ -25,18 +39,64 @@ img {
     top: 0;
     right: 0;
     z-index: -100;
-    background: #2a2a2a;
+    /* background: #2a2a2a; */
+    background-size: cover;
+}
+
+.background ::before {
+    display: block;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -99;
+    background: rgba(0, 0, 0, 0.7)
 }
 
 
 .gameUpper {
     /* 仮の背景 */
 
-    background-image: url(../thirdBakcgrorundImage/kariBakgroundImage.png);
     background-size: cover;
     display: flex;
     align-items: flex-end;
     margin: 0 auto;
+}
+
+#gameUpperBack1 {
+    background-image: url(../backgroundImage/background1.png);
+}
+
+#gameUpperBack2 {
+    background-image: url(../backgroundImage/background2.png);
+}
+
+#gameUpperBack3 {
+    background-image: url(../backgroundImage/background3.png);
+}
+
+#gameUpperBack4 {
+    background-image: url(../backgroundImage/background4.png);
+}
+
+#gameUpperBack5 {
+    background-image: url(../backgroundImage/background5.png);
+}
+
+#gameUpperBack6 {
+    background-image: url(../backgroundImage/background6.png);
+}
+
+#gameUpperBack7 {
+    background-image: url(../backgroundImage/background7.png);
+}
+
+#gameUpperBack8 {
+    background-image: url(../backgroundImage/background8.png);
+}
+
+#gameUpperBack9 {
+    background-image: url(../backgroundImage/background9.png);
 }
 
 
@@ -44,6 +104,7 @@ img {
 
 .announcePlace {
     position: absolute;
+    top: 5px;
     color: white;
     width: 100%;;
     background: rgba(21, 21, 21, 0.8);
@@ -53,6 +114,7 @@ img {
     justify-content: center;
     font-size: 23px;
     display: none;
+    border-radius: 15px 15px 0 0;
 }
 
 .announcePlace h1{
@@ -209,11 +271,14 @@ img {
     box-sizing: border-box;
 }
 
-.downerContent {
+.downerContent > div {
     width: 100%;
     overflow: hidden;
-    padding: 0 40px;
+    /* padding: 0 40px; */
     box-sizing: border-box;
+}
+
+.questionSpace {
     display: none;
 }
 
@@ -237,6 +302,8 @@ img {
     display: flex;;
     justify-content: space-between;
     align-items: center;
+    padding: 5%;
+    overflow: hidden;
     box-sizing: border-box;
 }
 
@@ -283,8 +350,9 @@ img {
 
 
 .attackButton {
+    text-align: center;
     background: red;
-    width: 80px;
+    width: 120px;
     height: 30px;
     display: flex;
     justify-content: center;
@@ -292,6 +360,129 @@ img {
     border: solid 1px black;
     margin-left: auto;
 }
+
+
+
+
+/* 最後の問題 */
+
+.lastQuestion {
+    display: none;
+}
+
+.questionLeft {
+    padding-right: 5%;;
+}
+
+.questionLeft h4 {
+    font-size: 22px;
+    text-decoration: underline;
+    margin-top: 40px;;
+}
+
+.questionLeft p {
+    font-size: 18px;;
+}
+
+
+.lastQuestionRight {
+    width: 45%;
+}
+
+.triangleTopRight {
+    display: inline-block;
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-top: solid 2px black;
+    border-right: solid 2px black;
+    box-sizing: border-box;
+}
+
+.lastQuestionImageInside h4 {
+    margin-top: 30px;
+    font-size: 20px;;
+}
+
+/* .pickLastQuestionHeader {
+} */
+
+.pickLastQuestionHeader h2 {
+    font-size: 30px;
+}
+
+.pickLastQuestionHeader h3 {
+    text-decoration: underline;
+    text-align: right;
+    margin-top: 40px;
+}
+
+
+/* 画像を表示させるところ */
+
+.lastQuestionImage {
+    position: absolute;
+    top: 0;
+    z-index: 102;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(15,15,15,0.7);
+    display: none;
+}
+
+
+.lastQuestionImageInside {
+    background: rgba(255,255,255,0.6);
+    background-size: cover;
+    width: 90%;
+    border-radius: 15px;
+    border: solid 5px #333333;
+    padding: 40px 30px;
+    box-sizing: border-box;
+}
+
+
+#pickLastQuestionImage {
+    width: 100px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+.getLastQuestion {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.getLastQuestion .lastOkButton {
+    background: #cc3333;
+    color: white;
+    width: 30px;
+    height: 20px;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    border: solid 1px white;
+    border-radius: 3px;;
+    margin-left: 15px;
+}
+
+.displayLastImage {
+    max-height: 290px;
+    max-width: 90%;
+    margin-top: 30px;
+}
+
+.displayLastImage img {
+    width: auto;
+}
+
+
+
+
+
 
 
 
@@ -322,16 +513,24 @@ img {
     background: #000033;
 }
 
-.question1Ture h1 {
+.questionTrue {
+    overflow: scroll;
+}
+
+.questionTrue h1 {
     color: #DD6060;
     text-align: center;
     font-size: 50px;
     margin-bottom: 50px;
 }
 
-.question1Ture h2 {
+.questionTrue h2 {
     font-size: 30px;
     text-decoration: underline;
+}
+
+.questionTrue h3 {
+    margin-bottom: 30px;
 }
 
 .commentaryBox {
@@ -340,22 +539,151 @@ img {
     justify-content: space-between;
 }
 
-.commentaryBox > div {
+.questionTrue {
     font-size: 18px;
     line-height: 35px;;
 }
 
 .commentaryText {
-    height: 250px;;
-    /* background-color: navy; */
+    height: 300px;
+    margin-bottom: 40px;;
+    text-align: center;
+    overflow: auto;
 }
 
-.commentaryImage {
-    width: 55%;
-    margin-left: auto;
+.commentaryText ::before{
+    content: "";
+    display: block;
+    width: 250px;
+    height: 1px;
+    background: white;
+    margin: 40px auto;
+}
+
+.commentaryText ::after {
+    content: "";
+    display: block;
+    width: 250px;
+    height: 1px;
+    background: white;
+    margin: 40px auto;
+}
+
+.commentaryText p {
+    overflow-wrap: break-word;
+    text-align: left;
 }
 
 .nextTalkCount {
     width: 80px;
     margin-left: auto;
+    overflow-wrap: break-word;
+}
+
+
+
+/* 不正解 */
+
+
+.questionElse {
+    width: 90%;
+    border-radius: 20px;
+    border: solid 4px white;
+    color: white;
+    padding: 10% 5%;
+    box-sizing: border-box;
+    background: #000033;
+}
+
+.questionElse h1 {
+    color: #DD6060;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 80px;
+}
+
+.questionElse h2 {
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+.questionElse ul {
+    margin-top: 50px;
+    margin-left: 30px;
+    font-size: 25px;
+}
+
+.questionElse li {
+    margin-bottom: 30px;
+}
+
+.buckAndHint {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+/* ヒント出すとこ */
+
+
+.checkViewHint {
+    padding: 80px 0;
+    text-align: center;
+    display: none;
+}
+
+.checkViewHint h2 {
+    font-size: 40px;
+}
+
+.checkHintYesNo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:  100px 30%;
+    font-size: 30px;
+}
+
+.checkViewHint .yes {
+    color: #ff3333;
+    text-decoration: underline #ff3333;
+}
+
+.checkViewHint .no {
+    color: blue;
+    text-decoration: underline blue;
+}
+
+
+
+/* ヒントの内容 */
+
+.viewHintSpace {
+    display: none;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.viewHintSpace h2 {
+    font-size: 40px;
+}
+
+.viewHintSpace p {
+    text-align: left;
+    font-size: 20px;;
+    padding:  100px 10%;
+}
+
+.hintOkBox {
+    width:  200px;;
+    height: 50px;
+    line-height: 50px;;
+    margin: 0 auto;
+    background: #ff3333;
+    border: solid 3px #f3f3f3;
+    border-radius: 10px;
+    
 }

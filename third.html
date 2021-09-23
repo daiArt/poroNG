@@ -16,17 +16,15 @@
 
     <div class="main">
 
-        <div class="gameUpper">
+        <div class="gameUpper" id="gameUpperBack1">
 
 
             <!-- 場所が書いてあったりスキップのやつがあるとこ -->
 
 
             <div class="talkSpace">
-
-
                 
-                 <!-- 会話に参加するキャラクターがいるところ -->
+                <!-- 会話に参加するキャラクターがいるところ -->
                 
                 
                 <div class="talkCharacter">
@@ -84,35 +82,101 @@
 
                 <div class="downerContent">
 
-                    <div class="questionText">
-                        <h2>Q. 問題文をここへ</h2>
+                    <div class="questionSpace">
 
-                        <p>最初は右に。　次は左。　最後に回れ右。　いや、やっぱりもう一回回れ右。そして３回スクワットしてから10回バービー</p>
-                    </div>
-
-                    <div class="questionBox">
-
-                        <div class="questionImage">
-                            
-                            <img src="" alt="">
-
+                        <div class="questionText">
+                            <h2>Q. 問題文をここへ</h2>
+    
+                            <p>最初は右に。　次は左。 　最後に回れ右。　いや、やっぱりもう一回回れ右。そして３回スクワットしてから10回バービー</p>
+                        </div>
+    
+                        <div class="questionBox">
+    
+                            <div class="questionImage">
+                                
+                                <img src="" alt="">
+    
+                            </div>
+    
+                            <div class="answerBox">
+    
+                                <h2>
+                                    A. 〇〇〇〇〇〇
+                                </h2>
+                                
+                                <input type="text" placeholder="答えを入力 (カタカナで入力)" id="inputAnswer">
+    
+                                <div class="attackButton">
+                                    アタック
+                                </div>
+    
+                            </div>
+    
                         </div>
 
-                        <div class="answerBox">
+                        
+                    </div>
 
-                            <h2>
-                                A. 〇〇〇〇〇〇
-                            </h2>
-                            
-                            <input type="text" placeholder="答えを入力 (カタカナで入力)" id="inputAnswer">
 
-                            <div class="attackButton">
-                                アタック
+                    <div class="lastQuestion">
+
+                        <!-- 最後の問題だけ全ての問題を見せれるようにしなきゃだめだから別で作成 -->
+                        
+                        <div class="questionText">
+                            <h2>Q.合言葉を見つけて必殺技を発動せよ </h2>
+                        </div>
+
+
+                        <div class="questionBox">
+
+                            <div class="questionLeft">
+                                
+                                <div class="lastQuestionText">
+                                    
+                                    <p>
+                                        Q1. 魔法陣の7番 <br>
+                                        Q2. 漢字の足りないところを読む。 <br>
+                                        Q3. 図形の中の一文字 ( <span class="triangleTopRight"></span> ) <br>
+                                        Q4. 赤からSに2
+                                    </p>
+                                    
+                                </div>
+                                
+                                <div class="openLastQuestionImage">
+                                    <h4>
+                                        画像を表示
+                                    </h4>
+                                </div>
+
+                            </div>
+
+
+                            <div class="lastQuestionRight">
+
+                                <div class="lastAnswerBox">
+
+                                    <div class="answerBox">
+    
+                                        <h2 style="text-align: left">
+                                            A. ????
+                                        </h2>
+                                        
+                                        <input type="text" placeholder="答えを入力 (カタカナで入力)" id="inputLastAnswer">
+            
+                                        <div class="attackButton">
+                                            ｱﾀｯｸ
+                                        </div>
+            
+                                    </div>
+                                    
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
+
 
 
                 </div>
@@ -123,7 +187,7 @@
 
         <div class="answerCommentary">
 
-            <div class="question1">
+            <div class="questionTrue">
 
                 <div class="displayResult">
                     <h1>
@@ -137,21 +201,15 @@
 
                 <div class="commentaryBox">
 
+                    <h3>
+                        - ちょこっと解説 -
+                    </h3>
+
                     <div class="commentaryText">
 
                         <p>
-                            火力発電とは文字通り”火の力”を利用して電気を生み出しているよ！。まずは天然ガスや石炭を燃料にする「ボイラー」という機械で火を起こして、たくさんのお湯をわかすんだ！そしてお湯を沸かすことで出てくる”蒸気”を利用して電気を生み出しているんだ！続きはこちらのサイトで確認してみてね！
+                            原子力発電は”ウラン”というものを使って電気を生み出しています　原子力発電は地球に悪いみたいなイメージがあるかもしれないけど、実は環境に悪いってわけではないんだ！　確かにウランの量には限りがあるし、いつか使えなくなってしまうものではあるけど、実は一度使われたウランのほとんどをもう一度使うことができるか有効に活用することもできるんだ！　それに、電気を作るときに二酸化炭素(CO2)をほとんど排出しないから環境に優しいとも言われているんだ！　あと、ちなみに”ニュークエクスプローション”は、”ニューク”が核のという海があり、エクスプローション (エクスプロージョン)は爆発みたいな意味があるよ！
                         </p>
-
-                    </div>
-
-                    <div class="commentaryImage">
-
-                        <div class="imageBox">
-
-                            <img src="./thirdPage/commentaryImageBox/question1.png" alt="">
-
-                        </div>
 
                     </div>
 
@@ -161,6 +219,126 @@
                     <h3>次へ→</h3>
                 </div>
 
+
+            </div>
+
+            <div class="questionElse">
+
+                <h1>不正解</h1>
+
+                <h2>
+                    どうやら答えが違うようだ・・・
+                </h2>
+
+                <ul>
+                    <li>
+                        ちゃんとカタカナで入力した？
+                    </li>
+
+                    <li>
+                        誤字脱字とかなさそう？
+                    </li>
+
+                    <li>
+                        変なスペースとか入ってない？
+                    </li>
+                </ul>
+
+                <div class="buckAndHint">
+
+                    <div class="buckQuestion">
+                        <h2>←戻る</h2>
+                    </div>
+
+                    <div class="viewHint">
+                        <h2>ヒントを見る?</h2>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="viewHintBox">
+
+                <div class="checkViewHint">
+                    <h2>
+                        本当にヒントを見る？
+                    </h2>
+
+                    <div class="checkHintYesNo">
+                        <div class="yes">
+                            <h3>
+                                Yes..
+                            </h3>
+                        </div>
+
+                        <div class="no">
+                            <h3>
+                                no!
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="viewHintSpace">
+
+                    <div class="hintQuestionNomber">
+                        <h2>一問目のヒントは</h2>
+                    </div>
+
+                    <div class="hintContent">
+                        <p>
+                            同じ数字は使わずたて、横、斜めでそれぞれ足して15になるように当てはめる
+                        </p>
+                    </div>
+
+                    <div class="hintOkBox">
+                        <h2>OK?</h2>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="lastQuestionImage">
+
+            <div class="lastQuestionImageInside">
+                
+                <div class="pickLastQestion">
+
+                    <div class="pickLastQuestionHeader">
+                        <h2>
+                            最終問題。　健闘を祈る
+                        </h2>
+
+                        <div class="buckLastQuestion">
+                            <h3>
+                                → 問題へ戻る
+                            </h3>
+                        </div>
+                    </div>
+            
+                    <h4>
+                        表示させる画像を選択する
+                    </h4>
+
+                    <div class="getLastQuestion">
+                        <input type="number" min="1" max="4" id="pickLastQuestionImage" placeholder="第?問目 ?">
+                        <div class="lastOkButton">
+                            OK
+                        </div>
+                    </div>
+                    
+                </div>
+    
+                <div class="displayLastImage">
+    
+                    <img src="./thirdPage/lastQuestionImageBox/lastQuestion1.png">
+    
+                </div>
 
             </div>
 
