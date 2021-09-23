@@ -262,7 +262,7 @@ $(window).on('load', function() {
     $(".background").attr('id','gameUpperBack1')
 
 
-    let talkCount = 48;
+    let talkCount = 0;
 
     let questionStage = '';
 
