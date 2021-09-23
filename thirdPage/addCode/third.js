@@ -1,5 +1,6 @@
-$(function() {
+$(window).on('load', function() {
 
+    
     let windowWidth = $(window).width();
     let windowHeight = $(window).height();
 
@@ -8,7 +9,7 @@ $(function() {
 
     localStorage.setItem('proNGWindowWidht' , windowWidth)
     localStorage.setItem('proNGWindowHeight' , windowWidth)
-    
+
     let pageWidht = windowHeight * 0.75;
 
             
@@ -17,32 +18,32 @@ $(function() {
         height: windowHeight
     })
 
-    
+
     $(".background").css({
         width: windowWidth,
         height: windowHeight
     })
-    
+
     $(".talkHeader").css({
         width: pageWidht,
     })
-    
-    
+
+
     let topScreanHiehgt = pageWidht / 1.75;
     let downScreanHeight = windowHeight - topScreanHiehgt;
-    
+
     $(".gameUpper").css({
         height: topScreanHiehgt
     })
-    
+
     let pageLeftStart = (windowWidth- pageWidht) / 2;
-    
+
     $(".announcePlace").css({
         height: topScreanHiehgt,
         width: pageWidht - 10,
         left: pageLeftStart + 5
     })
-    
+
     $(".answerCommentary").css({
         width: pageWidht,
         height: windowHeight,
@@ -68,19 +69,19 @@ $(function() {
     $(".gameDowner").css({
         height: downScreanHeight
     })
-    
+
     $(".downerContent").css({
         height: downScreanHeight * 0.8
     })
-    
+
     $(".downerContent > div").css({
         height: downScreanHeight * 0.8
     })
-    
+
     $(".wr-downerContent").css({
         height: downScreanHeight * 0.8
     })
-    
+
     let getQuestionTextHeight = $(".questionText").height();
     let downContentHeight = downScreanHeight * 0.8  - 35 - getQuestionTextHeight
     $(".questionBox").css({
@@ -131,7 +132,7 @@ $(function() {
         'HEY!HEY!HEY!',
         '〇〇〇〇〇！！！　ショット！！！',
         'ピカーッ！！！',
-        '買ったぜ！　ウェイ！',
+        '勝ったぜ！　ウェイ！',
         '次だZE GOGOGO!!!',
         'ｸﾞﾙﾙﾙﾙ',
         '我に宿し封印された力を今この場で開放してやろう！！',
@@ -261,9 +262,11 @@ $(function() {
     $(".background").attr('id','gameUpperBack1')
 
 
-    let talkCount = 0;
+    let talkCount = 48;
 
     let questionStage = '';
+
+    let checkAnnounce = 0;
 
 
     // アタックボタンのIDを取得
@@ -287,8 +290,9 @@ $(function() {
 
         console.log(talkCount)
 
-        if (talkCount === 6) {
+        if (talkCount === 6 && checkAnnounce === 0) {
 
+            checkAnnounce = 100;
 
             // 発電所到着
 
@@ -305,16 +309,18 @@ $(function() {
 
                 let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
-    
+
                 if (characterSelect >= 0 & characterSelect <= 11) {
                     $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
                 }
 
-    
+
                 $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
                 $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
 
                 talkCount = 7;
+
+                checkAnnounce = 0;
 
             },2500)
 
@@ -326,9 +332,11 @@ $(function() {
         
         
         
-        else if (talkCount === 14) {
+        else if (talkCount === 14 && checkAnnounce === 0) {
 
             // 火力発電所到着
+
+            checkAnnounce = 100;
 
             $(".gameUpper").attr('id','gameUpperBack3');
             $(".background").attr('id','gameUpperBack3')
@@ -349,16 +357,18 @@ $(function() {
 
                 let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
-    
+
                 if (characterSelect >= 0 & characterSelect <= 11) {
                     $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
                 }
 
-    
+
                 $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
                 $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
 
                 talkCount = 15;
+
+                checkAnnounce = 0;
 
             },2500)
 
@@ -366,12 +376,13 @@ $(function() {
         
         
         
-        else if (talkCount === 17) {
+        else if (talkCount === 17 && checkAnnounce === 0) {
 
             attackButtonId.value= '';
 
             // 第一回戦開始
-
+            checkAnnounce = 100;
+            
             talkCount = 17;
 
             let checkStage = 'stage1'
@@ -387,12 +398,12 @@ $(function() {
 
                 let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
-    
+
                 if (characterSelect >= 0 & characterSelect <= 11) {
                     $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
                 }
 
-    
+
                 $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
                 $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
                 $(".downerContent").css({
@@ -428,6 +439,8 @@ $(function() {
                     height: downContentHeight
                 })
 
+                checkAnnounce = 0;
+
             },2500)
 
             $(".attackButton").click(function() {
@@ -446,7 +459,7 @@ $(function() {
                     $(".answerCommentary").css({
                         display: 'flex'
                     })
-    
+
                     $(".questionTrue").css({
                         display: 'block',
                     })
@@ -465,9 +478,9 @@ $(function() {
                             display: 'none'
                         })
 
-    
+
                         talkCount = 18;
-    
+
                         let characterSelect = storyTalkerNomber[talkCount];
                         characterSelect = Number(characterSelect)
             
@@ -519,9 +532,12 @@ $(function() {
         
         
         
-        else if (talkCount === 21) {
+        else if (talkCount === 21 && checkAnnounce === 0) {
 
             // 水力発電所到着
+            checkAnnounce = 100;
+
+
             $(".gameUpper").attr('id','gameUpperBack4');
             $(".background").attr('id','gameUpperBack4')
 
@@ -539,16 +555,18 @@ $(function() {
 
                 let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
-    
+
                 if (characterSelect >= 0 & characterSelect <= 11) {
                     $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
                 }
 
-    
+
                 $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
                 $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
 
                 talkCount = 22;
+
+                checkAnnounce = 0;
 
             },2500)
 
@@ -557,9 +575,11 @@ $(function() {
         
         
         
-        else if (talkCount === 25) {
+        else if (talkCount === 25 && checkAnnounce === 0) {
 
             // 第二回戦開始
+
+            checkAnnounce = 100;
 
             talkCount = 25;
             
@@ -576,12 +596,12 @@ $(function() {
 
                 let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
-    
+
                 if (characterSelect >= 0 & characterSelect <= 11) {
                     $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
                 }
 
-    
+
                 $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
                 $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
                 $(".downerContent").css({
@@ -618,6 +638,8 @@ $(function() {
                     height: downContentHeight
                 })
 
+                checkAnnounce = 0;
+
             },2500)
 
             $(".attackButton").click(function() {
@@ -640,7 +662,7 @@ $(function() {
                     $(".answerCommentary").css({
                         display: 'flex'
                     })
-    
+
                     $(".questionTrue").css({
                         display: 'block',
                     })
@@ -659,9 +681,9 @@ $(function() {
                             display: 'none'
                         })
 
-    
+
                         talkCount = 26;
-    
+
                         let characterSelect = storyTalkerNomber[talkCount];
                         characterSelect = Number(characterSelect)
             
@@ -715,11 +737,12 @@ $(function() {
         } 
         
         
-        
-        
-        else if (talkCount === 29) {
+        else if (talkCount === 29 && checkAnnounce === 0) {
 
             // 風力発電所到着
+
+            checkAnnounce = 100;
+
             $(".gameUpper").attr('id','gameUpperBack5');
             $(".background").attr('id','gameUpperBack5')
 
@@ -738,16 +761,18 @@ $(function() {
 
                 let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
-    
+
                 if (characterSelect >= 0 & characterSelect <= 11) {
                     $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
                 }
 
-    
+
                 $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
                 $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
 
                 talkCount = 30;
+
+                checkAnnounce = 0;
 
             },2500)
 
@@ -757,9 +782,12 @@ $(function() {
         
         
         
-        else if (talkCount === 31) {
+        else if (talkCount === 31 && checkAnnounce === 0) {
 
             // 第三回戦 開始！！
+
+            checkAnnounce = 100;
+
 
             talkCount = 31;
 
@@ -774,12 +802,12 @@ $(function() {
 
                 let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
-    
+
                 if (characterSelect >= 0 & characterSelect <= 11) {
                     $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
                 }
 
-    
+
                 $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
                 $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
                 $(".downerContent").css({
@@ -817,6 +845,9 @@ $(function() {
                     height: downContentHeight
                 })
 
+                checkAnnounce = 0;
+
+
             },2500)
 
             $(".attackButton").click(function() {
@@ -839,14 +870,14 @@ $(function() {
                     $(".answerCommentary").css({
                         display: 'flex'
                     })
-    
+
                     $(".questionTrue").css({
                         display: 'block',
                     })
 
                     $(".nextTalkCount").click(function() {
                         $(".questionTrue").scrollTop(0);
-    
+
                         $(".commentaryText").scrollTop(0);
 
                         $(".answerCommentary").css({
@@ -861,9 +892,9 @@ $(function() {
                             display: 'none'
                         })
 
-    
+
                         talkCount = 32;
-    
+
                         let characterSelect = storyTalkerNomber[talkCount];
                         characterSelect = Number(characterSelect)
             
@@ -918,9 +949,12 @@ $(function() {
         
         
         
-        else if (talkCount === 34) {
+        else if (talkCount === 34 && checkAnnounce === 0) {
 
             // 太陽光発電所到着
+
+
+            checkAnnounce = 100;
 
             $(".gameUpper").attr('id','gameUpperBack6');
             $(".background").attr('id','gameUpperBack6')
@@ -940,16 +974,18 @@ $(function() {
 
                 let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
-    
+
                 if (characterSelect >= 0 & characterSelect <= 11) {
                     $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
                 }
 
-    
+
                 $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
                 $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
 
                 talkCount = 35;
+
+                checkAnnounce = 0;
 
             },2500)
 
@@ -957,9 +993,11 @@ $(function() {
 
 
 
-        else if (talkCount === 36) {
+        else if (talkCount === 36 && checkAnnounce === 0) {
 
         // 第4回戦 開始！！
+
+        checkAnnounce = 100;
 
         talkCount = 36;
 
@@ -1015,6 +1053,8 @@ $(function() {
             $(".questionBox").css({
                 height: downContentHeight
             })
+
+            checkAnnounce = 0;
 
         },2500)
 
@@ -1115,9 +1155,11 @@ $(function() {
 
         
 
-        } else if (talkCount === 40) {
+        } else if (talkCount === 40 && checkAnnounce === 0) {
 
         // 原子力発電所到着
+
+        checkAnnounce = 100;
 
         $(".gameUpper").attr('id','gameUpperBack7');
         $(".background").attr('id','gameUpperBack7')
@@ -1137,16 +1179,18 @@ $(function() {
 
             let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
-    
+
             if (characterSelect >= 0 & characterSelect <= 11) {
                 $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
             }
 
-    
+
             $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
             $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
 
             talkCount = 41;
+
+            checkAnnounce = 0;
 
         },2500)
 
@@ -1154,29 +1198,31 @@ $(function() {
 
 
 
-        else if (talkCount === 42) {
+        else if (talkCount === 42 && checkAnnounce === 0) {
 
             // 第五開戦開始
 
             talkCount = 42;
 
+            checkAnnounce = 100;
+
             $(".announcePlace").html('<h1>戦闘開始</h1>');
-    
+
             announcePlaceOn();
-    
+
             setTimeout(function() {
                 announcePlaceOff();
-    
+
                 talkCount = 42;
-    
+
                 let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
-    
+
                 if (characterSelect >= 0 & characterSelect <= 11) {
                     $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
                 }
-    
-    
+
+
                 $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
                 $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
                 $(".downerContent").css({
@@ -1185,19 +1231,19 @@ $(function() {
                 $(".questionSpace").css({
                     display: 'block'
                 })
-    
+
                 // 問題の部分
-    
+
                 $(".questionText > h2").html(
                     'Q. 謎を解いて技を発動しろ！！'
                 )
-    
+
                 $(".questionText > p").html(
                     '書き順通りによめ (※10文字目には伸ばし棒が入ります)'
                 )
-    
+
                 $(".questionImage > img").attr('src','./thirdPage/questionBox/5.png')
-    
+
                 $(".answerBox > h2").html(
                     'A. ?????????-???'
                 )
@@ -1206,19 +1252,21 @@ $(function() {
 
                 questionStage = 5;
 
-    
+
                 let getQuestionTextHeight = $(".questionText").height();
                 let downContentHeight = downScreanHeight * 0.8  - 35 - getQuestionTextHeight
                 $(".questionBox").css({
                     height: downContentHeight
                 })
-    
+
+                checkAnnounce = 0;
+
             },2500)
-    
+
             $(".attackButton").click(function() {
-    
+
                 let answerStorage = attackButtonId.value;
-    
+
                 if (answerStorage === 'ニュークエクスプローション') {
 
 
@@ -1236,7 +1284,7 @@ $(function() {
                     $(".answerCommentary").css({
                         display: 'flex'
                     })
-    
+
                     $(".questionTrue").css({
                         display: 'block',
                     })
@@ -1259,9 +1307,9 @@ $(function() {
                             display: 'none'
                         })
 
-    
+
                         talkCount = 43;
-    
+
                         let characterSelect = storyTalkerNomber[talkCount];
                         characterSelect = Number(characterSelect)
             
@@ -1308,14 +1356,16 @@ $(function() {
                     })
 
                 }
-    
+
             })
 
         }
 
 
 
-        else if (talkCount === 46) {
+        else if (talkCount === 46 && checkAnnounce === 0) {
+
+            checkAnnounce = 100;
 
             // 魔王の城到着
 
@@ -1337,16 +1387,18 @@ $(function() {
 
             let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
-    
+
             if (characterSelect >= 0 & characterSelect <= 11) {
                 $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
             }
 
-    
+
             $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
             $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
 
             talkCount = 47;
+
+            checkAnnounce = 0;
 
         },2500)
 
@@ -1354,7 +1406,9 @@ $(function() {
 
 
 
-        else if (talkCount == 49) {
+        else if (talkCount == 49 && checkAnnounce === 0) {
+
+            checkAnnounce = 100;
 
             talkCount = 49;
 
@@ -1364,23 +1418,23 @@ $(function() {
 
             setTimeout(function() {
                 announcePlaceOff();
-    
+
                 talkCount = 49;
-    
+
                 let characterSelect = storyTalkerNomber[talkCount];
                 characterSelect = Number(characterSelect)
-    
+
                 if (characterSelect >= 0 & characterSelect <= 11) {
                     $("#talkerLeft").attr('src','./thirdPage/characterImage/character' + characterSelect + '.png')
                 }
-    
-    
+
+
                 $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
                 $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
                 $(".downerContent").css({
                     display: 'block'
                 })
-    
+
                 // 問題の部分
 
                 $(".lastQuestion").css({
@@ -1392,7 +1446,8 @@ $(function() {
 
                 questionStage = 6;
 
-    
+                checkAnnounce = 0;
+
             },2500)
 
 
@@ -1447,7 +1502,7 @@ $(function() {
                     $(".answerCommentary").css({
                         display: 'flex'
                     })
-    
+
                     $(".questionTrue").css({
                         display: 'block',
                     })
@@ -1466,9 +1521,9 @@ $(function() {
                             display: 'none'
                         })
 
-    
+
                         talkCount = 50;
-    
+
                         let characterSelect = storyTalkerNomber[talkCount];
                         characterSelect = Number(characterSelect)
             
@@ -1481,7 +1536,7 @@ $(function() {
             
                         $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
                         $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
-                        talkCount += 1;
+                        talkCount = 51;
 
                         
                         attackButtonId.value= '';
@@ -1520,17 +1575,16 @@ $(function() {
             })
 
         }
-
-
-        else if (talkCount === 51) {
-            
-            $(".gameUpper").attr('id','gameUpperBack9');
-            $(".background").attr('id','gameUpperBack9')
-        }
         
         
         
         else if (talkCount <= 52) {
+
+            if (talkCount === 51) {
+                $(".gameUpper").attr('id','gameUpperBack9');
+                $(".background").attr('id','gameUpperBack9')
+            }
+
             let characterSelect = storyTalkerNomber[talkCount];
             characterSelect = Number(characterSelect)
 
@@ -1543,8 +1597,8 @@ $(function() {
 
             $(".talkerContentBox").html('<h4>' + storyTlaking[talkCount] + '</h4>')
             $(".talkerName").html('<h4>' + talkerCharacterName[characterSelect] + '</h4>')
+            
             talkCount += 1;
-
 
         }
         
@@ -1612,7 +1666,7 @@ $(function() {
             $(".viewHintBox").css({
                 display: 'none'
             })
-    
+
             $(".checkViewHint").css({
                 display: 'none'
             })
@@ -1628,7 +1682,7 @@ $(function() {
             $(".questionElse").css({
                 display: 'block'
             })
-    
+
             $(".viewHintBox").css({
                 display: 'none'
             })
@@ -1638,4 +1692,9 @@ $(function() {
     })
 
 
-})
+    // ウィンドウを再び表示させても前と同じ状態にさせる
+
+    $(window).on('beforeunload', function() {
+
+    })
+});

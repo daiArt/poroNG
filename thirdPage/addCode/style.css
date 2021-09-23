@@ -374,6 +374,12 @@ img {
     padding-right: 5%;;
 }
 
+.lastQuestionText {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 35px;
+}
+
 .questionLeft h4 {
     font-size: 22px;
     text-decoration: underline;
