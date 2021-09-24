@@ -1,4 +1,4 @@
-$(window).on('load', function() {
+$(function() {
 
     
     let windowWidth = $(window).width();
