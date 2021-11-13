@@ -900,7 +900,6 @@ $(function() {
 
             openLastQuestion();
 
-
         }
 
         
