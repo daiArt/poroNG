@@ -64,7 +64,7 @@ $(function() {
         } else if (checkOpeningCount === 0 && openingCount === 11) {
 
             // ここにプレイ用のやついれる
-            window.location.href = 'https://daiart.github.io/poroNG/thirdPageBox/third.html';
+            window.location.href = 'https://daiart.github.io/proNG/thirdPageBox/third.html';
 
         }
 
