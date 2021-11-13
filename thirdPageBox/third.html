@@ -4,19 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./thirdPage/addCode/style.css">
+    <link rel="stylesheet" href="./thirdPage/addCode/style.css">s
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
-    <script src="./jQueryBox/jquery-3.5.1.min.js"></script>
+    <script src="../jQueryBox/jquery-3.5.1.min.js"></script>
     <script src="./thirdPage/addCode/third.js"></script>
     <title>Document</title>
 </head>
 <body>
 
+    <div class="roadNow">
+
+        <div class="roadContent">
+            
+            <h2>ロード中</h2>
+
+            <div class="roadBar">
+                <div class="roadBarDimgray"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
     <div class="main">
 
-        <div class="gameUpper" id="gameUpperBack1">
+        <div class="gameUpper clickOn" id="gameUpperBack1">
 
 
             <!-- 場所が書いてあったりスキップのやつがあるとこ -->
@@ -85,7 +100,7 @@
                     <div class="questionSpace">
 
                         <div class="questionText">
-                            <h2>Q. 問題文をここへ</h2>
+                            <h2>Q. 謎を解いて技を発動しろ！！</h2>
     
                             <p>最初は右に。　次は左。 　最後に回れ右。　いや、やっぱりもう一回回れ右。そして３回スクワットしてから10回バービー</p>
                         </div>
@@ -98,7 +113,7 @@
     
                             </div>
     
-                            <div class="answerBox">
+                            <div class="answerBox" id="normalAnswerBox">
     
                                 <h2>
                                     A. 〇〇〇〇〇〇
@@ -107,7 +122,7 @@
                                 <input type="text" placeholder="答えを入力 (カタカナで入力)" id="inputAnswer">
     
                                 <div class="attackButton">
-                                    アタック
+                                    ｱﾀｯｸ
                                 </div>
     
                             </div>
@@ -123,7 +138,7 @@
                         <!-- 最後の問題だけ全ての問題を見せれるようにしなきゃだめだから別で作成 -->
                         
                         <div class="lastQuestionText">
-                            <h2>Q.合言葉を見つけて必殺技を発動せよ </h2>
+                            <h2>Q.謎を解いて技を発動しろ！</h2>
                         </div>
 
 
@@ -135,7 +150,7 @@
                                     
                                     <p>
                                         Q1. 魔法陣の7番 <br>
-                                        Q2. 漢字の足りないところを読む。 <br>
+                                        Q2. 漢字の足りないところを読む。一問目とは違う漢字で <br>
                                         Q3. 図形の中の一文字 ( <span class="triangleTopRight"></span> ) <br>
                                         Q4. 赤からSに2 <br>
                                         (間違った答えを入力すればヒントを見れるようになります)

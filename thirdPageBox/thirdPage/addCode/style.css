@@ -26,6 +26,77 @@ img {
     display: none;
 }
 
+
+
+/* ロード中の処理 */
+
+.roadNow {
+    background: #121212;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+    position: absolute;
+    z-index: 20;
+    width: 100%;
+}
+
+.roadContent {
+    text-align: center;
+}
+
+
+.closeRoadNow {
+    animation: closeRoad 1s ease-in forwards;
+}
+
+
+
+@keyframes closeRoad {
+
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+    
+}
+
+
+.roadBar {
+    width: 200px !important;
+    height: 10px; 
+    background: white;
+    border-radius: 7px;
+    margin-top: 15px;
+}
+
+.roadBarDimgray {
+    width: 200px;
+    height: 10px;
+    transform: scaleX(0);
+    transform-origin: top left;
+    background: dimgray;
+    position: absolute;
+    border-radius: 7px;
+    box-sizing: border-box;
+    animation: roadOn 4s ease-out forwards;
+}
+
+@keyframes roadOn {
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+
+
+
 .main {
     background: white;
     border: solid 5px white;
@@ -67,32 +138,32 @@ img {
     background-image: url(../backgroundImage/background1.png);
 }
 
-#gameUpperBack2 {
-    background-image: url(../backgroundImage/background2.png);
-}
-
-#gameUpperBack3 {
-    background-image: url(../backgroundImage/background3.png);
-}
-
-#gameUpperBack4 {
-    background-image: url(../backgroundImage/background4.png);
-}
-
-#gameUpperBack5 {
-    background-image: url(../backgroundImage/background5.png);
-}
-
 #gameUpperBack6 {
     background-image: url(../backgroundImage/background6.png);
 }
 
-#gameUpperBack7 {
-    background-image: url(../backgroundImage/background7.png);
+#gameUpperBack14 {
+    background-image: url(../backgroundImage/background14.png);
 }
 
-#gameUpperBack8 {
-    background-image: url(../backgroundImage/background8.png);
+#gameUpperBack21 {
+    background-image: url(../backgroundImage/background21.png);
+}
+
+#gameUpperBack29 {
+    background-image: url(../backgroundImage/background29.png);
+}
+
+#gameUpperBack34 {
+    background-image: url(../backgroundImage/background34.png);
+}
+
+#gameUpperBack40 {
+    background-image: url(../backgroundImage/background40.png);
+}
+
+#gameUpperBack46 {
+    background-image: url(../backgroundImage/background46.png);
 }
 
 #gameUpperBack9 {
@@ -107,7 +178,7 @@ img {
     top: 5px;
     color: white;
     width: 100%;;
-    background: rgba(21, 21, 21, 0.8);
+    background: rgba(21, 21, 21, 1);
     z-index: 100;
     display: flex;
     align-items: center;
@@ -387,7 +458,7 @@ img {
 }
 
 .questionLeft p {
-    font-size: 18px;;
+    font-size: 15px;;
 }
 
 
