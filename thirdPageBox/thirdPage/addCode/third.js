@@ -943,7 +943,7 @@ $(function() {
         setTimeout (function() {
 
             clearInterval(rehersalGamePlay);
-            talkCount = 52
+            talkCount = 0;
             checkAnnounce = 0;
     
             $(".gameUpper").attr('id','gameUpperBack1')
