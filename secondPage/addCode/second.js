@@ -65,6 +65,7 @@ $(function() {
 
             // ここにプレイ用のやついれる
             window.location.href = 'https://daiart.github.io/proNG/thirdPageBox/third.html';
+            
         }
 
     })
