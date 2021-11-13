@@ -912,7 +912,7 @@ $(function() {
         }
 
         else if (checkAnnounce === 0 && talkCount === 53) {
-            window.location.href = 'https://daiart.github.io/proNG/thirdPageBox/third.html';
+            window.location.href = 'https://daiart.github.io/proNG/endRoll/index.html';
         }
         
     })
