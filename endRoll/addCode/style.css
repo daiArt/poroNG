@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #121212;
+    font-family: ronde-b, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 15px;
+}
+
+
+
+.enderContent1 {
+    display:flex;
+    font-size: 40px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* 二個目 */
+
+.enderContent2 {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.enderContent2 h1 {
+    font-size: 40px;
+    margin-right: 60px;;
+}
+
+.staffName p{
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+
+
+/* 三個目 */
+
+.enderContent3 {
+    display: flex;
+    text-align: center;
+
+    padding: 15% 5%;
+}
+
+.enderContent3 h1 {
+    font-size: 70px;
+    font-weight: 200;
+    margin-bottom: 160px;
+}
+
+.enderContent3 h2 {
+    font-size: 35px;
+    margin-bottom: 40px;;
+}
+
+.enderContent3 h4 {
+    font-size: 30px;;
+    margin-bottom: 120px;;
+}
+
+.enderContent3 p {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+
+
+
+/* 四個目 */
+
+
+.enderContent4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.enderContent4 h2 {
+    font-size: 35px;
+}
+
+.endAndNext {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.endAndNext a {
+    font-size: 20px;;
+    color: white;
+    margin: 10% 30px;
+}

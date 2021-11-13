@@ -766,7 +766,7 @@ $(function() {
 
     $(".viewHint").click(function() {
 
-        alert(questionCount)
+        // alert(questionCount)
 
         $(".questionElse").css({
             display: 'none'
@@ -910,6 +910,10 @@ $(function() {
             nextTalkScene();
 
         }
+
+        else if (checkAnnounce === 0 && talkCount === 53) {
+            window.location.href = 'https://daiart.github.io/proNG/thirdPageBox/third.html';
+        }
         
     })
 
@@ -939,7 +943,7 @@ $(function() {
         setTimeout (function() {
 
             clearInterval(rehersalGamePlay);
-            talkCount = 0
+            talkCount = 52
             checkAnnounce = 0;
     
             $(".gameUpper").attr('id','gameUpperBack1')
