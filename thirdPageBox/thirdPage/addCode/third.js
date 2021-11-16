@@ -377,7 +377,7 @@ $(function() {
     const questionTextp = [
         '魔法陣を説いて偶数(2で割り切れる数字)の数字の少ない順に読め',
         '漢字の中に隠れているカタカナを見つけろ！ (※3文字目には濁点がつきます)',
-        '下の暗号を解け！',
+        '下の暗号を解け！ (※答えの３文字目は小文字になります)',
         '赤からスタートして、 Wに1, Sに1, Eに3, Wに2, Nに3, Eに2, Wに4, Sに2, Eに3, Sに2 に従ってなぞれ。',
         '書き順通りによめ (※10文字目には伸ばし棒が入り、11文字目には濁点がつきます)'
     ]
@@ -942,7 +942,7 @@ $(function() {
         setTimeout (function() {
 
             clearInterval(rehersalGamePlay);
-            talkCount = 0;
+            talkCount = 0
             checkAnnounce = 0;
     
             $(".gameUpper").attr('id','gameUpperBack1')
