@@ -337,14 +337,14 @@ img {
     width: 100%;
     border: solid 1px black;
     border-radius: 15px;
-    overflow: scroll;
+    overflow: hidden;
     margin: 0 5%;
     box-sizing: border-box;
 }
 
 .downerContent > div {
     width: 100%;
-    overflow: hidden;
+    overflow: scroll;
     /* padding: 0 40px; */
     box-sizing: border-box;
 }
