@@ -337,7 +337,7 @@ img {
     width: 100%;
     border: solid 1px black;
     border-radius: 15px;
-    overflow: hidden;
+    overflow: scroll;
     margin: 0 5%;
     box-sizing: border-box;
 }
